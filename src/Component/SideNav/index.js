@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { Nav, Sidebar, Sidenav, Toggle } from "rsuite";
+import { Nav, Sidenav, Toggle } from "rsuite";
 import { BiGroup, BiSolidDashboard } from "react-icons/bi";
-import { HiUserGroup, HiCamera } from "react-icons/hi";
+import { HiCamera } from "react-icons/hi";
 
 function SideNav() {
   const [expanded, setExpanded] = useState(true);
@@ -20,7 +20,7 @@ function SideNav() {
   };
 
   return (
-    <div style={{ width: 240 }}>
+    <div style={{ width: 240, ...panelStyles }}>
       <Toggle
         onChange={setExpanded}
         checked={expanded}

@@ -1,14 +1,14 @@
 import React from "react";
 import FrameDashboard from "../../Component/FrameDashboard";
 
-function AgvControl() {
+function Dashboard() {
   return (
     <div>
       <FrameDashboard>
-        <h1>Halaman AGV Control</h1>
+        <h1>Halaman Dashboard</h1>
       </FrameDashboard>
     </div>
   );
 }
 
-export default AgvControl;
+export default Dashboard;
