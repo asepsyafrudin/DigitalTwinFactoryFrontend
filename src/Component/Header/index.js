@@ -1,4 +1,4 @@
-import { UserBadge } from "@rsuite/icons";
+// import { UserBadge } from "@rsuite/icons";
 import React from "react";
 import { Navbar, Nav } from "rsuite";
 import SearchIcon from "@rsuite/icons/Search";

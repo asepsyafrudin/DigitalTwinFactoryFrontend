@@ -13,7 +13,7 @@ import DekidakaImg from "../../Assets/dekidaka.gif";
 import SOPimg from "../../Assets/sopdx.gif";
 import LeaderControlImg from "../../Assets/leadercontrol.png";
 import AGVControlImg from "../../Assets/agv2.gif";
-import MisuzumashiImg from "../../Assets/misuzu.png";
+// import MisuzumashiImg from "../../Assets/misuzu.png";
 import EPM from "../../Assets/epm.png";
 import EnergyImg from "../../Assets/enegry.gif";
 import Footer from "../../Component/Footer/Index";
@@ -125,7 +125,7 @@ function Dashboard() {
                 </Col>
               </Row>
               <Row>
-                <Col lg={3} className="mb-3 mt-3 mr-3 ml-3">
+                {/* <Col lg={3} className="mb-3 mt-3 mr-3 ml-3">
                   <CardMenu
                     title={"Misuzhumashi"}
                     desc={""}
@@ -133,7 +133,7 @@ function Dashboard() {
                     to={"/e-ro"}
                     colorTitle={"danger"}
                   />
-                </Col>
+                </Col> */}
                 <Col lg={3} className="mb-3 mt-3 mr-3 ml-3">
                   <CardMenu
                     title={"Traceability"}
