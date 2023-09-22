@@ -14,7 +14,7 @@ const headerStyles = {
   padding: 18,
   fontSize: 16,
   height: 56,
-  background: "#34c3ff",
+  background: "#020025",
   color: " #fff",
   whiteSpace: "nowrap",
   overflow: "hidden",
@@ -46,7 +46,7 @@ const NavToggle = ({ expand, onChange }) => {
 };
 
 const FrameDashboard = ({ children }) => {
-  const [expand, setExpand] = React.useState(true);
+  const [expand, setExpand] = React.useState(false);
   return (
     <div className="show-fake-browser sidebar-page">
       <Container>
