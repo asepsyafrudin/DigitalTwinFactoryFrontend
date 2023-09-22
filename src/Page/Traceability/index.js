@@ -1,9 +1,12 @@
 import React from "react";
+import FrameDashboard from "../../Component/FrameDashboard";
 
 function Traceability() {
   return (
     <div>
-      <h1> Ini adalah halaman Traceability </h1>
+      <FrameDashboard>
+        <h1> Ini adalah halaman Traceability </h1>
+      </FrameDashboard>
     </div>
   );
 }

@@ -1,9 +1,12 @@
 import React from "react";
+import FrameDashboard from "../../Component/FrameDashboard";
 
 function Ekanban() {
   return (
     <div>
-      <h1>Halaman E Kanban</h1>
+      <FrameDashboard>
+        <h1>Halaman E Kanban</h1>
+      </FrameDashboard>
     </div>
   );
 }

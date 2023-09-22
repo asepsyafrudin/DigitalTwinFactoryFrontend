@@ -1,9 +1,12 @@
 import React from "react";
+import FrameDashboard from "../../Component/FrameDashboard";
 
 function EReceiving() {
   return (
     <div>
-      <h1>ini halaman EReceiving</h1>
+      <FrameDashboard>
+        <h1>ini halaman EReceiving</h1>
+      </FrameDashboard>
     </div>
   );
 }

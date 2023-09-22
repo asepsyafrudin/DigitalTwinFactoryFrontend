@@ -5,10 +5,10 @@ import { Container, Sidebar, Sidenav, Content, Navbar, Nav } from "rsuite";
 import CogIcon from "@rsuite/icons/legacy/Cog";
 import AngleLeftIcon from "@rsuite/icons/legacy/AngleLeft";
 import AngleRightIcon from "@rsuite/icons/legacy/AngleRight";
-import GearCircleIcon from "@rsuite/icons/legacy/GearCircle";
 import DashboardIcon from "@rsuite/icons/Dashboard";
 import GroupIcon from "@rsuite/icons/legacy/Group";
 import MagicIcon from "@rsuite/icons/legacy/Magic";
+import { Link, useNavigate } from "react-router-dom";
 
 const headerStyles = {
   padding: 18,
@@ -47,6 +47,13 @@ const NavToggle = ({ expand, onChange }) => {
 
 const FrameDashboard = ({ children }) => {
   const [expand, setExpand] = React.useState(false);
+  const navigate = useNavigate();
+
+  const changePage = (e) => {
+    const page = e.target.id;
+    console.log(page);
+    navigate(`/${page}`);
+  };
   return (
     <div className="show-fake-browser sidebar-page">
       <Container>
@@ -57,7 +64,7 @@ const FrameDashboard = ({ children }) => {
         >
           <Sidenav.Header>
             <div style={headerStyles}>
-              <span> DX</span>
+              <span>DX</span>
             </div>
           </Sidenav.Header>
           <Sidenav
@@ -67,44 +74,52 @@ const FrameDashboard = ({ children }) => {
           >
             <Sidenav.Body style={{ textAlign: "left" }}>
               <Nav>
-                <Nav.Item eventKey="1" active icon={<DashboardIcon />}>
+                <Nav.Item
+                  eventKey="1"
+                  active
+                  icon={<DashboardIcon />}
+                  id="dashboard"
+                  onClick={changePage}
+                >
                   Dashboard
-                </Nav.Item>
-                <Nav.Item eventKey="2" icon={<GroupIcon />}>
-                  User Group
                 </Nav.Item>
                 <Nav.Menu
                   eventKey="3"
                   trigger="hover"
-                  title="Advanced"
+                  title="Production Planning"
                   icon={<MagicIcon />}
                   placement="rightStart"
                 >
-                  <Nav.Item eventKey="3-1">Geo</Nav.Item>
-                  <Nav.Item eventKey="3-2">Devices</Nav.Item>
-                  <Nav.Item eventKey="3-3">Brand</Nav.Item>
-                  <Nav.Item eventKey="3-4">Loyalty</Nav.Item>
-                  <Nav.Item eventKey="3-5">Visit Depth</Nav.Item>
+                  <Nav.Item eventKey="3-1">E-kanban</Nav.Item>
+                  <Nav.Item eventKey="3-2">E-Staging</Nav.Item>
+                  <Nav.Item eventKey="3-3">E-Inventory</Nav.Item>
+                  <Nav.Item eventKey="3-4">E-Receiving</Nav.Item>
+                  <Nav.Item eventKey="3-5">E-RO</Nav.Item>
                 </Nav.Menu>
                 <Nav.Menu
-                  eventKey="4"
+                  eventKey="3"
                   trigger="hover"
-                  title="Settings"
-                  icon={<GearCircleIcon />}
+                  title="Production"
+                  icon={<MagicIcon />}
                   placement="rightStart"
                 >
-                  <Nav.Item eventKey="4-1">Applications</Nav.Item>
-                  <Nav.Item eventKey="4-2">Websites</Nav.Item>
-                  <Nav.Item eventKey="4-3">Channels</Nav.Item>
-                  <Nav.Item eventKey="4-4">Tags</Nav.Item>
-                  <Nav.Item eventKey="4-5">Versions</Nav.Item>
+                  <Nav.Item eventKey="3-1">E-Dekidaka</Nav.Item>
+                  <Nav.Item eventKey="3-2">Leader Control</Nav.Item>
+                  <Nav.Item eventKey="3-3">AGV Control</Nav.Item>
+                  <Nav.Item eventKey="3-4">SOP DX</Nav.Item>
+                  <Nav.Item eventKey="3-5">Traceability</Nav.Item>
                 </Nav.Menu>
+                <Nav.Item eventKey="2" icon={<GroupIcon />}>
+                  Maintenace E-PM
+                </Nav.Item>
+                <Nav.Item eventKey="2" icon={<GroupIcon />}>
+                  Energy Control
+                </Nav.Item>
               </Nav>
             </Sidenav.Body>
           </Sidenav>
           <NavToggle expand={expand} onChange={() => setExpand(!expand)} />
         </Sidebar>
-
         <Container>
           <Header />
           <Content>

@@ -53,7 +53,7 @@ function Dashboard() {
                     title={"E-Inventory"}
                     desc={""}
                     srcImg={InventoryImg}
-                    to={"/e-kanban"}
+                    to={"/e-inventory"}
                     colorTitle={"warning"}
                   />
                 </Col>
@@ -139,7 +139,7 @@ function Dashboard() {
                     title={"Traceability"}
                     desc={""}
                     srcImg={EroImg}
-                    to={"/e-ro"}
+                    to={"/e-traceability"}
                     colorTitle={"primary"}
                   />
                 </Col>
@@ -177,7 +177,7 @@ function Dashboard() {
                     title={"E-Energy Control"}
                     desc={""}
                     srcImg={EnergyImg}
-                    to={"/e-pm"}
+                    to={"/e-energy"}
                     colorTitle={"primary"}
                   />
                 </Col>

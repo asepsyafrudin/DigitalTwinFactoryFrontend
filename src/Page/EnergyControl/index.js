@@ -1,9 +1,12 @@
 import React from "react";
+import FrameDashboard from "../../Component/FrameDashboard";
 
 function EnergyControl() {
   return (
     <div>
-      <h1> Ini adalah halaman Energy Control </h1>
+      <FrameDashboard>
+        <h1> Ini adalah halaman Energy Control </h1>
+      </FrameDashboard>
     </div>
   );
 }
