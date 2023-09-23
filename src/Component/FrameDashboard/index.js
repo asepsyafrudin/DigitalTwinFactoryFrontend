@@ -8,7 +8,7 @@ import AngleRightIcon from "@rsuite/icons/legacy/AngleRight";
 import DashboardIcon from "@rsuite/icons/Dashboard";
 import GroupIcon from "@rsuite/icons/legacy/Group";
 import MagicIcon from "@rsuite/icons/legacy/Magic";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const headerStyles = {
   padding: 18,
@@ -49,10 +49,8 @@ const FrameDashboard = ({ children }) => {
   const [expand, setExpand] = React.useState(false);
   const navigate = useNavigate();
 
-  const changePage = (e) => {
-    const page = e.target.id;
-    console.log(page);
-    navigate(`/${page}`);
+  const changePage = (page) => {
+    navigate(page);
   };
   return (
     <div className="show-fake-browser sidebar-page">
@@ -77,24 +75,48 @@ const FrameDashboard = ({ children }) => {
                 <Nav.Item
                   eventKey="1"
                   active
-                  icon={<DashboardIcon />}
-                  id="dashboard"
-                  onClick={changePage}
+                  icon={<DashboardIcon style={{ pointerEvents: "none" }} />}
+                  onClick={() => changePage("/dashboard")}
                 >
                   Dashboard
                 </Nav.Item>
                 <Nav.Menu
-                  eventKey="3"
+                  eventKey="2"
                   trigger="hover"
                   title="Production Planning"
                   icon={<MagicIcon />}
                   placement="rightStart"
                 >
-                  <Nav.Item eventKey="3-1">E-kanban</Nav.Item>
-                  <Nav.Item eventKey="3-2">E-Staging</Nav.Item>
-                  <Nav.Item eventKey="3-3">E-Inventory</Nav.Item>
-                  <Nav.Item eventKey="3-4">E-Receiving</Nav.Item>
-                  <Nav.Item eventKey="3-5">E-RO</Nav.Item>
+                  <Nav.Item
+                    eventKey="2-1"
+                    onClick={() => changePage("/e-kanban")}
+                  >
+                    E-kanban
+                  </Nav.Item>
+                  <Nav.Item
+                    eventKey="2-2"
+                    onClick={() => changePage("/e-staging")}
+                  >
+                    E-Staging
+                  </Nav.Item>
+                  <Nav.Item
+                    eventKey="2-3"
+                    onClick={() => {
+                      changePage("/e-inventory");
+                    }}
+                  >
+                    E-Inventory
+                  </Nav.Item>
+                  <Nav.Item
+                    eventKey="2-4"
+                    name={"e-receiving"}
+                    onClick={() => changePage("/e-receiving")}
+                  >
+                    E-Receiving
+                  </Nav.Item>
+                  <Nav.Item eventKey="2-5" onClick={() => changePage("/e-ro")}>
+                    E-RO
+                  </Nav.Item>
                 </Nav.Menu>
                 <Nav.Menu
                   eventKey="3"
@@ -104,15 +126,44 @@ const FrameDashboard = ({ children }) => {
                   placement="rightStart"
                 >
                   <Nav.Item eventKey="3-1">E-Dekidaka</Nav.Item>
-                  <Nav.Item eventKey="3-2">Leader Control</Nav.Item>
-                  <Nav.Item eventKey="3-3">AGV Control</Nav.Item>
-                  <Nav.Item eventKey="3-4">SOP DX</Nav.Item>
-                  <Nav.Item eventKey="3-5">Traceability</Nav.Item>
+                  <Nav.Item
+                    eventKey="3-2"
+                    name="leadercontrol"
+                    onClick={() => changePage("/leadercontrol")}
+                  >
+                    Leader Control
+                  </Nav.Item>
+                  <Nav.Item
+                    eventKey="3-3"
+                    name="agvcontrol"
+                    onClick={() => changePage("/agvcontrol")}
+                  >
+                    AGV Control
+                  </Nav.Item>
+                  <Nav.Item
+                    eventKey="3-4"
+                    name="sopdx"
+                    onClick={() => changePage("/sopdx")}
+                  >
+                    SOP DX
+                  </Nav.Item>
+                  <Nav.Item
+                    eventKey="3-5"
+                    name="traceability"
+                    onClick={() => changePage("/e-traceability")}
+                  >
+                    Traceability
+                  </Nav.Item>
                 </Nav.Menu>
-                <Nav.Item eventKey="2" icon={<GroupIcon />}>
+                <Nav.Item eventKey="4" icon={<GroupIcon />}>
                   Maintenace E-PM
                 </Nav.Item>
-                <Nav.Item eventKey="2" icon={<GroupIcon />}>
+                <Nav.Item
+                  eventKey="4"
+                  icon={<GroupIcon />}
+                  name="e-energy"
+                  onClick={() => changePage("/e-energy")}
+                >
                   Energy Control
                 </Nav.Item>
               </Nav>
