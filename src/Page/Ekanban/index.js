@@ -23,6 +23,8 @@ import {
   WH_SIP,
   WH_TIMUR,
 } from "../../Config/const";
+import axios from "axios";
+import { createMasterPartNumberApi } from "../../Config/api";
 
 // function FormMasterEKanban() {
 //   const [validated, setValidated] = useState(false);
@@ -53,7 +55,36 @@ function Ekanban() {
   const [minBox, setMinBox] = useState("");
   const [maxBox, setMaxBox] = useState("");
 
-  const handleSaveMasterPartNumber = () => {};
+  const handleSaveMasterPartNumber = (e) => {
+    e.preventDefault();
+    const data = {
+      PART_NO: partNumber,
+      PART_NAME: partName,
+      PART_TYPE: prodType,
+      LOT_SIZE: parseInt(lotSize),
+      LINE_ID: parseInt(line),
+      QTY_BOX: parseInt(qtyBox),
+      LOT_CODE: lotCode,
+      SUPP_CODE: suppCode,
+      PLANT_NAME: plant,
+      RCV_GATE: rcvGate,
+      WH_LOC: whLoc,
+      DELV_CYCLE: delCycle,
+      STD_MIN_BOX: parseInt(minBox),
+      STD_MAX_BOX: parseInt(maxBox),
+    };
+    console.log(data);
+
+    let confirm = window.confirm("Do you to save ?");
+    if (confirm) {
+      axios
+        .post(createMasterPartNumberApi, data)
+        .then(() => {
+          window.alert("Data Send Success");
+        })
+        .catch((error) => console.log(error));
+    }
+  };
   return (
     <div>
       <FrameDashboard>
@@ -73,7 +104,7 @@ function Ekanban() {
                     <option value="" disabled>
                       Select Product Type
                     </option>
-                    <option value="Line Creation Lab">Line Creation Lab</option>
+                    <option value={1}>Line Creation Lab</option>
                   </Form.Select>
                 </FloatingLabel>
               </Col>
@@ -142,7 +173,7 @@ function Ekanban() {
                 >
                   {" "}
                   <Form.Control
-                    type=""
+                    type="number"
                     placeholder=""
                     value={lotSize}
                     onChange={(e) => setLotSize(e.target.value)}
@@ -158,7 +189,7 @@ function Ekanban() {
                 >
                   {" "}
                   <Form.Control
-                    type=""
+                    type="number"
                     placeholder=""
                     value={qtyBox}
                     onChange={(e) => setQtyBox(e.target.value)}
@@ -174,7 +205,7 @@ function Ekanban() {
                 >
                   {" "}
                   <Form.Control
-                    type=""
+                    type="text"
                     placeholder=""
                     value={lotCode}
                     onChange={(e) => setLotCode(e.target.value)}
