@@ -25,3 +25,9 @@ export const deleteMasterMachineByIdApi = (id) => {
 //api pulling
 export const createTransactionPullingApi = `${port}/api/pulling/create`;
 export const getTransactionPullingApi = `${port}/api/pulling/getTransactionPulling`;
+
+//api pulling detail
+export const createTransactionDetailPullingApi = `${port}/api/pullingDetail/create`;
+export const deleteTransactionDetailPullingByIdApi = (id) => {
+  return `${port}/api/pullingDetail/delete/${id}`;
+};
